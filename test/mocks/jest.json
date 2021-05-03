@@ -1,0 +1,12 @@
+{
+  "moduleFileExtensions": ["js", "json", "ts"],
+  "moduleDirectories": ["node_modules", "<rootDir>/src", "src"],
+  "rootDir": ".",
+  "testRegex": ".loader.ts$",
+  "collectCoverage": true,
+  "collectCoverageFrom": ["**/*{mock}.{ts,js}", "!**/node_modules/**", "!**/vendor/**", "!**/src/**"],
+  "transform": {
+    "^.+\\.(t|j)s$": "ts-jest"
+  },
+  "forceExit": true
+}

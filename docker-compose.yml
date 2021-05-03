@@ -1,0 +1,47 @@
+version: "2"
+services:
+  # MySQL DB Container
+  mysql:
+    image: "mysql:latest"
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      # <Port exposed> : < MySQL Port running inside container>
+      - "3306:3306"
+    volumes:
+      - ./docker-data/mysql:/var/lib/mysql
+      - ./docker/conf:/etc/mysql/conf.d
+      - ./docker/provision/mysql/init:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_ROOT_PASSWORD: local
+  # Postgres DB Container
+  # postgres:
+  #   image: "postgres:latest"
+  #   ports:
+  #     # <Port exposed> : < PGSQL Port running inside container>
+  #     - "5432:5432"
+  #   volumes:
+  #     - ./docker-data/pg:/var/lib/postgresql/data
+  #   environment:
+  #     POSTGRES_DB: "boilerplate_development"
+  #     POSTGRES_USER: "bp_user"
+  #     POSTGRES_PASSWORD: "bp_password"
+  # S3 Localstack for local AWS services, you may add other AWS services, see https://github.com/localstack/localstack
+  # localstack-s3:
+  #   image: localstack/localstack
+  #   volumes:
+  #     - ./docker-data/localstack:/tmp/localstack
+  #   ports:
+  #     - 5000:5000
+  #     - 8080:8080
+  #   environment:
+  #     - SERVICES=s3:5000,web:8080
+  #     - DEFAULT_REGION=us-west-2
+  #     - DATA_DIR=/tmp/localstack/data
+  # Redis Cache
+  # redis:
+  #   image: "redis:5-alpine"
+  #   ports:
+  #     - "6379:6379"
+  #   volumes:
+  #     - ./docker-data/redis:/data

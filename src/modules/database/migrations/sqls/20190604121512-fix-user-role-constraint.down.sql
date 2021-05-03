@@ -1,0 +1,1 @@
+-- SQL statements for the DOWN migration

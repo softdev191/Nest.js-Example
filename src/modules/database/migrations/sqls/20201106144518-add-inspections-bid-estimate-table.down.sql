@@ -1,0 +1,9 @@
+ALTER TABLE `project_estimates`
+  DROP COLUMN `total_inspections`,
+  DROP COLUMN `rough_inspections`,
+  DROP COLUMN `final_inspections`,
+  DROP COLUMN `grease_duct_inspections`,
+  DROP COLUMN `pre_health_inspections`,
+  DROP COLUMN `final_bldg_inspections`,
+  DROP COLUMN `fire_dept_inspections`,
+  DROP COLUMN `final_health_inspections`;
